@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-12 header">
+        header area
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 toolbar">
+        <div class="toolbar-header">TOOLBOX</div>
+        <div class="box">
+            WEB COMPONENT<br/>DEDUCTIONS
+        </div>
+        <div class="box">
+            WEB COMPONENT<br/>PAYROLL SCHEDULE
+        </div>
+        <div class="box">
+            WEB COMPONENT<br/>SEND TO AUTOPAY
+        </div>
+        <div class="box">
+            WEB COMPONENT<br/>DEDUCTIONS
+        </div>
+        <div class="box">
+            WEB COMPONENT<br />DEDUCTIONS
+        </div>
+        <div class="box">
+            BRANCH
+        </div>
+    </div>
+    <div id="canvas" class="col-md-9">
+        <div class="target">
+        </div>
+        <div class="target">
+        </div>
+    </div>
+</div>
+
+<script>
+    /* Draggable event handlers */
+    function dragStart(event) {
+        var data = this.innerHTML;
+        event.dataTransfer.setData('text/html', data);
+        event.dataTransfer.setData('boxtype', 'TOOLBOX');
+    }
+
+    function dragEnd(event) {
+    }
+
+    /* Drop target event handlers */
+    function dragEnter(event) {
+        event.target.style.backgroundColor = "#EDEDED";
+    }
+
+    function dragOver(event) {
+        event.preventDefault();
+        return false;
+    }
+
+    function dragLeave(event) {
+        event.target.style.backgroundColor = "#FFFFFF";
+    }
+
+    function drop(event) {
+        event.target.style.backgroundColor = "#FFFFFF";
+        var data = event.dataTransfer.getData('text/html');
+        var boxtype = event.dataTransfer.getData('type');
+
+        this.innerHTML = data;
+
+        event.preventDefault();
+        return false;
+    }
+
+    var boxes = document.querySelectorAll('.box'), el = null;
+    for (var i = 0; i < boxes.length; i++) {
+        el = boxes[i];
+        el.setAttribute('draggable', 'true');
+        el.addEventListener('dragstart', dragStart, false);
+    }
+
+    var targets = document.querySelectorAll('.target'), el = null;
+    for (var i = 0; i < targets.length; i++) {
+        el = targets[i];
+        el.setAttribute('draggable', 'true');
+        el.addEventListener('dragstart', dragStart, false);
+
+        el.addEventListener('dragenter', dragEnter, false);
+        el.addEventListener('dragover', dragOver, false);
+        el.addEventListener('dragleave', dragLeave, false);
+        el.addEventListener('drop', drop, false);
+    }
+
+</script>

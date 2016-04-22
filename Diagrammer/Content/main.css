@@ -1,0 +1,70 @@
+﻿html,body { height: 100%; margin: 0px; padding: 0px; }
+
+.header {
+    min-height: 150px;
+    height: 150px;
+    border-bottom: 1px solid black;
+    background-color: #BEDB89;
+}
+
+.toolbar {
+    background-color: #ECF3E3;
+    border-right: 1px solid black;
+    min-height: 800px;
+}
+
+.canvas {
+    background-color: white;
+    min-height: 800px;
+    height: 800px;
+}
+
+.toolbar-header {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+    font-variant-caps: all-small-caps;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-left: 0px;
+    margin-bottom: 12px;
+}
+
+.box {
+    background-color: #BEDB89;
+    border: 1px solid #343131;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 500;
+    min-height: 45px;
+    height: 45px;
+    width: 145px;
+    cursor: move;
+    float: left;
+    margin-right: 3px;
+    margin-bottom: 3px;
+}
+
+.target {
+    background-color: white;
+    border: 1px solid #808080;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 500;
+    min-height: 65px;
+    height: 65px;
+    width: 145px;
+    cursor: move;
+    float: left;
+    margin-right: 3px;
+    margin-top: 6px;
+}
+
+#canvas.over {
+    border: 1px solid red;
+}
+
+.over {
+    background-color: #EDEDED;
+    border: 1px solid red;
+}
